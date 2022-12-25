@@ -1,14 +1,18 @@
-<div class="ps-block--promotion-header bg--cover" style="background: url('../../../assets/img/banner/top/header-promotion-1.jpg');">
+<div *ngIf="!preload && top_banner != null" class="ps-block--promotion-header bg--cover" style="background: url('../../../assets/img/banner/top/header-promotion-1.jpg');">
     <div class="container">
         <div class="ps-block__left">
-            <h3>20%</h3>
+            <h3>{{H3}}</h3>
             <figure>
-                <p>Discount</p>
-                <h4>For Books Of March</h4>
+                <p>{{P1}}</p>
+                <h4>{{H4}}</h4>
             </figure>
         </div>
         <div class="ps-block__center">
-            <p>Enter Promotion<span>Sale2019</span></p>
-        </div><a class="ps-btn ps-btn--sm" href="#">Shop now</a>
+            <p>{{P2}}<span>{{Span}}</span></p>
+        </div><a class="ps-btn ps-btn--sm" href="#">{{Button}}</a>
     </div>
+</div>
+
+<div *ngIf="preload && top_banner == null" class="d-flex justify-content-center">
+    <div class="spinner-border text-muted my-3" style="width: 5rem; height: 5rem;"></div>
 </div>
