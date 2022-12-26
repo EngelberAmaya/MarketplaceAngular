@@ -2,8 +2,6 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subject, takeUntil } from 'rxjs';
 import { CategoriesService } from 'src/app/services/categories.service';
 import { SubCategoriesService } from 'src/app/services/sub-categories.service';
-declare var jQuery:any;
-declare var $:any;
 
 @Component({
   selector: 'app-header-mobile',
@@ -35,7 +33,7 @@ export class HeaderMobileComponent implements OnInit, OnDestroy {
   obtenerCategorias(){
     this.categoriesService.getCategories().pipe(takeUntil(this.unsubscribe$)).subscribe((resp: any) => {
       this.categories = resp;
-      console.log(resp);
+      //console.log(resp);
       this.categories.forEach(data => {
         this.categoriesList.push(data.name);
       })
