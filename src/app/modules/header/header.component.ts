@@ -39,6 +39,8 @@ export class HeaderComponent implements OnInit, OnDestroy {
         this.arrayTitleList.push(JSON.parse(data.title_list));
         
       })
+    }, err => {
+      console.log(err);
     });
   }
 
@@ -74,6 +76,8 @@ export class HeaderComponent implements OnInit, OnDestroy {
               //console.log('arrayTitleName', this.listFiltro);
               this.obtenerFiltroSubcategoria(iterator);
             
+            }, err => {
+              console.log(err);
             })
         }
       })

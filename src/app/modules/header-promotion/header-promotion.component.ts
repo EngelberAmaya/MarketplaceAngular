@@ -75,6 +75,8 @@ export class HeaderPromotionComponent implements OnInit, OnDestroy {
      
       this.preload = false;		
   
+    }, err => {
+      console.log(err);
     })
 
   }
