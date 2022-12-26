@@ -20,6 +20,7 @@ export class HeaderPromotionComponent implements OnInit, OnDestroy {
   P1 = '';
   P2 = '';
   Span = '';
+  category: any;
 
   constructor(private productsService: ProductsService) { }
 
@@ -63,8 +64,8 @@ export class HeaderPromotionComponent implements OnInit, OnDestroy {
       Devolvemos a la vista un banner aleatorio
       =============================================*/
   
-      //this.top_banner = JSON.parse(resp[Object.keys(resp)[index]].top_banner);
       this.top_banner = JSON.parse(resp[Object.keys(resp)[index]].top_banner);
+      this.category = resp[Object.keys(resp)[index]].category;
       this.H3 = this.top_banner['H3-tag'];
       this.H4 = this.top_banner['H4-tag'];
       this.Button = this.top_banner['Button-tag'];
