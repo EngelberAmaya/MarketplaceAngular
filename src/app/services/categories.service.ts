@@ -5,11 +5,11 @@ import { environment } from 'src/environments/environment';
 @Injectable({
   providedIn: 'root'
 })
-export class ProductsService {
+export class CategoriesService {
 
   constructor(private http:HttpClient ) { }
 
-	getProducts(){
-		return this.http.get(`${environment.url}/products.json`);
+	getCategories(){
+		return this.http.get(`${environment.url}/categories.json`);
 	}
 }

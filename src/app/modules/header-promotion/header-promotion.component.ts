@@ -29,36 +29,41 @@ export class HeaderPromotionComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
+    this.obtenerProductos();
+  }
+  
+  
+  obtenerProductos(){
     this.preload = true;
-
-		this.productsService.getProducts().pipe(takeUntil(this.unsubscribe$)).subscribe((resp: any) =>{
-			
-			// console.log("resp", resp[Object.keys(resp)[1]]);
-
-			/*=============================================
-			Tomar la longitud del objeto
-			=============================================*/
-
-			let i;
-			let size = 0;
-
-			for(i in resp){
-
-				size++			
-
-			}
-
-			/*=============================================
-			Generar un número aleatorio 
-			=============================================*/
-
-			let index = Math.floor(Math.random()*size);
-
-			/*=============================================
-			Devolvemos a la vista un banner aleatorio
-			=============================================*/
-
-			//this.top_banner = JSON.parse(resp[Object.keys(resp)[index]].top_banner);
+  
+    this.productsService.getProducts().pipe(takeUntil(this.unsubscribe$)).subscribe((resp: any) =>{
+      
+      // console.log("resp", resp[Object.keys(resp)[1]]);
+  
+      /*=============================================
+      Tomar la longitud del objeto
+      =============================================*/
+  
+      let i;
+      let size = 0;
+  
+      for(i in resp){
+  
+        size++			
+  
+      }
+  
+      /*=============================================
+      Generar un número aleatorio 
+      =============================================*/
+  
+      let index = Math.floor(Math.random()*size);
+  
+      /*=============================================
+      Devolvemos a la vista un banner aleatorio
+      =============================================*/
+  
+      //this.top_banner = JSON.parse(resp[Object.keys(resp)[index]].top_banner);
       this.top_banner = JSON.parse(resp[Object.keys(resp)[index]].top_banner);
       this.H3 = this.top_banner['H3-tag'];
       this.H4 = this.top_banner['H4-tag'];
@@ -68,12 +73,10 @@ export class HeaderPromotionComponent implements OnInit, OnDestroy {
       this.Span = this.top_banner['Span-tag'];
       this.IMG = this.top_banner['IMG-tag'];
      
-			this.preload = false;
-		
-
-		})
-  }
-
+      this.preload = false;		
   
+    })
+
+  }
 
 }
