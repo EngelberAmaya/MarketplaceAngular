@@ -21,6 +21,7 @@ export class HeaderPromotionComponent implements OnInit, OnDestroy {
   P2 = '';
   Span = '';
   category: any;
+  url: any;
 
   constructor(private productsService: ProductsService) { }
 
@@ -66,6 +67,7 @@ export class HeaderPromotionComponent implements OnInit, OnDestroy {
   
       this.top_banner = JSON.parse(resp[Object.keys(resp)[index]].top_banner);
       this.category = resp[Object.keys(resp)[index]].category;
+      this.url = resp[Object.keys(resp)[index]].url;
       this.H3 = this.top_banner['H3-tag'];
       this.H4 = this.top_banner['H4-tag'];
       this.Button = this.top_banner['Button-tag'];

@@ -4,8 +4,7 @@
 
 export const environment = {
   production: false,
-  url: 'la dirección del proyecto generado en firebase',
-  enlaceImagen: '../../../assets/'
+  url: 'la dirección del proyecto generado en firebase'
 };
 
 /*

@@ -1,0 +1,13 @@
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    filter: invert(108%);
+}
+
+.contenido {
+    position: absolute;
+    top: 45%;
+    -webkit-transform: translateY(-90%);
+    transform: translateY(-75%);
+    left: 0;
+    right: 50%;
+}

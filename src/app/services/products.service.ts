@@ -12,4 +12,8 @@ export class ProductsService {
 	getProducts(){
 		return this.http.get(`${environment.url}/products.json`);
 	}
+
+	getLimitProducts(startAt:string, limitToFirst:number){
+		return this.http.get(`${environment.url}/products.json?orderBy="$key"&startAt="${startAt}"&limitToFirst=${limitToFirst}&print=pretty`);
+	}
 }

@@ -13,6 +13,7 @@ import { ProductsComponent } from './pages/products/products.component';
 import { ProductComponent } from './pages/product/product.component';
 import { SearchComponent } from './pages/search/search.component';
 import { Ruta404Component } from './pages/ruta404/ruta404.component';
+import { HomeBannerComponent } from './pages/home/home-banner/home-banner.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { Ruta404Component } from './pages/ruta404/ruta404.component';
     ProductsComponent,
     ProductComponent,
     SearchComponent,
-    Ruta404Component
+    Ruta404Component,
+    HomeBannerComponent
   ],
   imports: [
     BrowserModule,
