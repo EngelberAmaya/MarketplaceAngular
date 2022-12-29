@@ -15,6 +15,7 @@ import { SearchComponent } from './pages/search/search.component';
 import { Ruta404Component } from './pages/ruta404/ruta404.component';
 import { HomeBannerComponent } from './pages/home/home-banner/home-banner.component';
 import { HomeFeaturesComponent } from './pages/home/home-features/home-features.component';
+import { HomePromotionsComponent } from './pages/home/home-promotions/home-promotions.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { HomeFeaturesComponent } from './pages/home/home-features/home-features.
     SearchComponent,
     Ruta404Component,
     HomeBannerComponent,
-    HomeFeaturesComponent
+    HomeFeaturesComponent,
+    HomePromotionsComponent
   ],
   imports: [
     BrowserModule,

@@ -1,4 +1,4 @@
-<div *ngIf="!preload" id="carouselExampleControls" data-interval="false" class="carousel slide" data-ride="carousel">
+<div *ngIf="!preload" id="carouselExampleControls" data-interval="false" class="carousel slide" data-ride="carousel" style="min-height: 100px;">
     <div class="carousel-inner">
         <div class="carousel-item" *ngFor="let item of banner_home; let i = index" [ngClass]="{'active': i == 0 }">
             <img src="../../../../assets/img/products/{{category[i]}}/horizontal/{{item['IMG tag']}}">
