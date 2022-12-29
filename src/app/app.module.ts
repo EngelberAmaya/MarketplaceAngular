@@ -16,6 +16,7 @@ import { Ruta404Component } from './pages/ruta404/ruta404.component';
 import { HomeBannerComponent } from './pages/home/home-banner/home-banner.component';
 import { HomeFeaturesComponent } from './pages/home/home-features/home-features.component';
 import { HomePromotionsComponent } from './pages/home/home-promotions/home-promotions.component';
+import { HomeTopCategoriesComponent } from './pages/home/home-top-categories/home-top-categories.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { HomePromotionsComponent } from './pages/home/home-promotions/home-promo
     Ruta404Component,
     HomeBannerComponent,
     HomeFeaturesComponent,
-    HomePromotionsComponent
+    HomePromotionsComponent,
+    HomeTopCategoriesComponent
   ],
   imports: [
     BrowserModule,
