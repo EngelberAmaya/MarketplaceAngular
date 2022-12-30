@@ -1,0 +1,100 @@
+<div class="ps-section--gray">
+
+    <div class="container">
+
+        <!--=====================================
+        Products of category
+        ======================================-->
+
+        <div *ngFor="let item of categories; let lastIndex = last; let i = index" class="ps-block--products-of-category">
+
+            <!--=====================================
+            Menu subcategory
+            ======================================-->
+
+            <div class="ps-block__categories">
+
+                <h3>{{item.name}}</h3>
+
+                <ul>
+                    <li *ngFor="let sub of obtenerFiltroSubcategoria(item.name); let j = index">
+                        <a routerLink="products/{{sub.url}}">{{ sub.subcategory }}</a>
+                    </li>
+
+                </ul>
+
+                <a class="ps-block__more-link" routerLink="products/{{item.url}}">View All</a>
+
+            </div>
+
+
+
+            <!--=====================================
+            Block Product Box
+            ======================================-->
+
+            <div class="ps-block__product-box">
+
+                <!--=====================================
+                Product Simple
+                ======================================-->
+
+                <div *ngFor="let sub of obtenerFiltroProductos(item.url)" class="ps-product ps-product--simple">
+
+                    <div class="ps-product__thumbnail">
+
+                        <a href="product-default.html">
+
+                            <img src="../../../../assets/img/products/{{sub.category}}/{{sub.image}}" alt="">
+
+                        </a>
+
+                        <div *ngIf="sub.stock > 0" class="ps-product__badge">-{{sub.descuento}}%</div>
+                        <div *ngIf="sub.stock == 0" class="ps-product__badge out-stock">Out off stock</div>
+
+                    </div>
+
+                    <div class="ps-product__container">
+
+                        <div class="ps-product__content" data-mh="clothing">
+
+                            <a class="ps-product__title" href="product-default.html">{{sub.name}}</a>
+
+                            <div class="ps-product__rating">
+
+                                <!-- <span class="ps-product__title">Rating: {{ rating }}</span> -->
+
+                            </div>
+
+                            <p class="ps-product__price sale">${{sub.oferta}} <del>{{sub.price}} </del></p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+                <!-- End Product Simple -->
+
+                <!--=====================================
+                Product Simple
+                ======================================-->
+
+
+
+            </div>
+            <!-- End Block Product Box -->
+
+            {{ lastIndex ? callback() : "" }}
+        </div>
+        <!-- End Products of category -->
+
+        <!--=====================================
+        Products of category
+        ======================================-->
+
+
+
+    </div>
+    <!-- End Container-->
+
+</div>

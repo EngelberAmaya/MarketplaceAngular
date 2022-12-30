@@ -13,13 +13,7 @@ export class HeaderPromotionComponent implements OnInit, OnDestroy {
   top_banner: any;
 	preload = false;
   unsubscribe$ = new Subject();
-  H3 = '';
-  Button = '';
-  H4 = '';
-  IMG = '';
-  P1 = '';
-  P2 = '';
-  Span = '';
+  img = '';
   category: any;
   url: any;
 
@@ -39,6 +33,7 @@ export class HeaderPromotionComponent implements OnInit, OnDestroy {
     this.preload = true;
   
     this.productsService.getProducts().pipe(takeUntil(this.unsubscribe$)).subscribe((resp: any) =>{
+      
       
       // console.log("resp", resp[Object.keys(resp)[1]]);
   
@@ -66,15 +61,12 @@ export class HeaderPromotionComponent implements OnInit, OnDestroy {
       =============================================*/
   
       this.top_banner = JSON.parse(resp[Object.keys(resp)[index]].top_banner);
+      //console.log(this.top_banner);
       this.category = resp[Object.keys(resp)[index]].category;
       this.url = resp[Object.keys(resp)[index]].url;
-      this.H3 = this.top_banner['H3-tag'];
-      this.H4 = this.top_banner['H4-tag'];
-      this.Button = this.top_banner['Button-tag'];
-      this.P1 = this.top_banner['P1-tag'];
-      this.P2 = this.top_banner['P2-tag'];
-      this.Span = this.top_banner['Span-tag'];
-      this.IMG = this.top_banner['IMG-tag'];
+      
+      this.img = this.top_banner['IMG tag'];
+      //console.log(this.img);
      
       this.preload = false;		
   

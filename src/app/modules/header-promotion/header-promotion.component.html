@@ -1,18 +1,18 @@
-<div *ngIf="!preload && top_banner != null" class="ps-block--promotion-header bg--cover" style="background: url(../../../assets/img/products/{{category}}/top/{{IMG}});">
+<div *ngIf="!preload && top_banner != null" class="ps-block--promotion-header bg--cover" style="background: url(../../../assets/img/products/{{category}}/top/{{img}});">
     <div class="container">
         <div class="ps-block__left">
-            <h3>{{H3}}</h3>
+            <h3>{{top_banner['H3 tag']}}</h3>
             <figure>
-                <p>{{P1}}</p>
-                <h4>{{H4}}</h4>
+                <p>{{top_banner['P1 tag']}}</p>
+                <h4>{{top_banner['H4 tag']}}</h4>
             </figure>
         </div>
         <div class="ps-block__center">
-            <p>{{P2}}<span>{{Span}}</span></p>
-        </div><a class="ps-btn ps-btn--sm" routerLink="product/{{url}}">{{Button}}</a>
+            <p>{{top_banner['P2 tag']}}<span>{{top_banner['Span tag']}}</span></p>
+        </div><a class="ps-btn ps-btn--sm" routerLink="product/{{url}}">{{top_banner['Button tag']}}</a>
     </div>
 </div>
 
 <div *ngIf="preload && top_banner == null" class="d-flex justify-content-center">
-    <div class="spinner-border text-muted my-3" style="width: 5rem; height: 5rem;"></div>
+    <div class="spinner-border text-muted my-3"></div>
 </div>
