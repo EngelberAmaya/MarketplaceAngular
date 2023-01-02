@@ -18,6 +18,7 @@ import { HomeFeaturesComponent } from './pages/home/home-features/home-features.
 import { HomePromotionsComponent } from './pages/home/home-promotions/home-promotions.component';
 import { HomeTopCategoriesComponent } from './pages/home/home-top-categories/home-top-categories.component';
 import { HomeShowcaseComponent } from './pages/home/home-showcase/home-showcase.component';
+import { ProductsBreadcrumbComponent } from './pages/products/products-breadcrumb/products-breadcrumb.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { HomeShowcaseComponent } from './pages/home/home-showcase/home-showcase.
     HomeFeaturesComponent,
     HomePromotionsComponent,
     HomeTopCategoriesComponent,
-    HomeShowcaseComponent
+    HomeShowcaseComponent,
+    ProductsBreadcrumbComponent
   ],
   imports: [
     BrowserModule,

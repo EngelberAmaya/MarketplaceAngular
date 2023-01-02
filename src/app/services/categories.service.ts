@@ -12,4 +12,10 @@ export class CategoriesService {
 	getCategories(){
 		return this.http.get(`${environment.url}/categories.json`);
 	}
+
+	getFilterCategories(orderBy:String, equalTo:String){
+
+		return this.http.get(`${environment.url}/categories.json?orderBy="${orderBy}"&equalTo="${equalTo}"&print=pretty`);
+
+	}
 }

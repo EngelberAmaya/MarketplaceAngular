@@ -82,7 +82,7 @@
                         <ul class="menu--dropdown">
 
                             <li *ngFor="let item of listCategories; let i = index; let lastIndex = last" class="menu-item-has-children has-mega-menu">
-                                <a routerLink="products/{{item.url}}"><i class="{{item.icon}}"></i>{{item.name}}</a>
+                                <a routerLink="products/{{item.url}}" target="_top"><i class="{{item.icon}}"></i>{{item.name}}</a>
                                 <div class="mega-menu">
 
                                     <div *ngFor="let title of arrayTitleList[i]" class="mega-menu__column">
@@ -90,7 +90,7 @@
                                         <ul class="mega-menu__list" *ngFor="let sub of obtenerFiltroSubcategoria(title); let i = index">
                                             <div *ngIf="sub.subcategory != '+'">
                                                 <li>
-                                                    <a routerLink="products/{{sub.url}}">{{ sub.subcategory }}</a>
+                                                    <a routerLink="products/{{sub.url}}" target="_top">{{ sub.subcategory }}</a>
                                                 </li>
                                             </div>
                                         </ul>
