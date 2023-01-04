@@ -54,7 +54,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
           this.subCategoriesService.getFilterData("title_list", iterator).pipe(takeUntil(this.unsubscribe2$))
             .subscribe((resp: any) => {
               arraySubCategories.push(resp);
-              let arrayTitleName = [];
+              let arrayTitleName:any = [];
 
               for (let item in arraySubCategories) {
                 //console.log('item', arraySubCategories[item]);

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Subject, takeUntil } from 'rxjs';
 import { ProductsService } from 'src/app/services/products.service';
+import { Rating, DinamicRating, DinamicReviews, DinamicPrice } from '../../../functions';
 
 @Component({
   selector: 'app-products-showcase',
@@ -13,7 +14,11 @@ export class ProductsShowcaseComponent implements OnInit {
   unsubscribe$ = new Subject();
   unsubscribe2$ = new Subject();
   products:Array<any> = [];
-
+  render = true;
+  cargando = false;
+  rating: Array<any> = [];
+	reviews: Array<any> = [];
+	price: Array<any> = [];
 
   constructor(private productsService: ProductsService,
               private activateRoute: ActivatedRoute) { }
@@ -31,6 +36,7 @@ export class ProductsShowcaseComponent implements OnInit {
 
   obtenerProductos(){
     let params = this.activateRoute.snapshot.params["param"];
+    this.cargando = true;
 
     this.productsService.getFilterProducts("category", params).pipe(takeUntil(this.unsubscribe$)).subscribe((resp1: any) => {
 
@@ -54,7 +60,7 @@ export class ProductsShowcaseComponent implements OnInit {
   productsFnc(response: any){
 
     this.products = [];
-    let getProducts = [];
+    let getProducts:any = [];
 
     for (const key in response) {
       getProducts.push(response[key]);		
@@ -63,8 +69,22 @@ export class ProductsShowcaseComponent implements OnInit {
     getProducts.forEach((product, index) => {
       if (index < 6) {
         this.products.push(product);
+        this.rating.push(DinamicRating.fnc(this.products[index]));					
+				this.reviews.push(DinamicReviews.fnc(this.rating[index]));
+				this.price.push(DinamicPrice.fnc(this.products[index]));
+        this.cargando = false;
       }
     })
+  }
+
+  callback(){
+    if(this.render){
+
+      this.render = false;
+
+      Rating.fnc();
+      
+    }  
   }
 
 }
