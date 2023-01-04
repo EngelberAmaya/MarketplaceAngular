@@ -13,6 +13,10 @@ export class ProductsService {
 		return this.http.get(`${environment.url}/products.json`);
 	}
 
+	getFilterProducts(orderBy:string, equalTo:string){
+		return this.http.get(`${environment.url}/products.json?orderBy="${orderBy}"&equalTo="${equalTo}"&print=pretty`);
+	}
+
 	getLimitProducts(startAt:string, limitToFirst:number){
 		return this.http.get(`${environment.url}/products.json?orderBy="$key"&startAt="${startAt}"&limitToFirst=${limitToFirst}&print=pretty`);
 	}
