@@ -15,6 +15,10 @@ export class BestSalesItemComponent implements OnInit, OnDestroy {
   unsubscribe2$ = new Subject();
   bestSalesItem: Array<any> = [];
   render = true;
+  rating: Array<any> = [];
+	reviews: Array<any> = [];
+	price: Array<any> = [];
+	cargando = false;
 
   constructor(private productsService: ProductsService,
               private activateRoute: ActivatedRoute) { }
@@ -73,6 +77,9 @@ export class BestSalesItemComponent implements OnInit, OnDestroy {
 
       if(index < 10){
 				this.bestSalesItem.push(product);
+        this.rating.push(DinamicRating.fnc(this.bestSalesItem[index]));
+        this.reviews.push(DinamicReviews.fnc(this.rating[index]));
+        this.price.push(DinamicPrice.fnc(this.bestSalesItem[index]));
       }
     })
       
@@ -86,7 +93,7 @@ export class BestSalesItemComponent implements OnInit, OnDestroy {
 
       OwlCarouselConfig.fnc();
       CarouselNavigation.fnc();
-      //Rating.fnc();
+      Rating.fnc();
     
     }
 
