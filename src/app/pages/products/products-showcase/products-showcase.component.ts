@@ -50,11 +50,15 @@ export class ProductsShowcaseComponent implements OnInit {
 		
 					this.productsFnc(resp2);			
 									
-				})
+				}, err => {
+          console.log(err);
+        })
 
 			}
 			
-		})
+		}, err => {
+      console.log(err);
+    })
   }
 
   productsFnc(response: any){

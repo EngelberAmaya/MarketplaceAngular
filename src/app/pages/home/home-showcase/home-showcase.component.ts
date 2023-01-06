@@ -154,7 +154,7 @@ export class HomeShowcaseComponent implements OnInit {
             }
             this.obtenerFiltroProductos(category.url);
             
-            console.log(this.obtenerFiltroProductos(category.url));
+            //console.log(this.obtenerFiltroProductos(category.url));
 
         }, err => {
           console.log(err);

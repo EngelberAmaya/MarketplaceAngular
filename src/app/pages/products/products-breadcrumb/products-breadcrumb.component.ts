@@ -40,11 +40,14 @@ export class ProductsBreadcrumbComponent implements OnInit, OnDestroy {
           for (const key in resp2) {
             this.breadcrumb = resp2[key].name;          
           }
+        }, err => {
+          console.log(err);
         })
   
-      }
-      
+      }      
   
+    }, err => {
+      console.log(err);
     })
 
   }

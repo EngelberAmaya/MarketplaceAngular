@@ -20,6 +20,7 @@ import { HomeTopCategoriesComponent } from './pages/home/home-top-categories/hom
 import { HomeShowcaseComponent } from './pages/home/home-showcase/home-showcase.component';
 import { ProductsBreadcrumbComponent } from './pages/products/products-breadcrumb/products-breadcrumb.component';
 import { ProductsShowcaseComponent } from './pages/products/products-showcase/products-showcase.component';
+import { BestSalesItemComponent } from './pages/products/best-sales-item/best-sales-item.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { ProductsShowcaseComponent } from './pages/products/products-showcase/pr
     HomeTopCategoriesComponent,
     HomeShowcaseComponent,
     ProductsBreadcrumbComponent,
-    ProductsShowcaseComponent
+    ProductsShowcaseComponent,
+    BestSalesItemComponent
   ],
   imports: [
     BrowserModule,
