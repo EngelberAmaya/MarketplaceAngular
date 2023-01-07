@@ -36,7 +36,7 @@ export class BestSalesItemComponent implements OnInit, OnDestroy {
   }
 
   obtenerProductos(){
-    let params = this.activateRoute.snapshot.params["param"];
+    let params = this.activateRoute.snapshot.params["param"].split("&")[0];
 
     this.productsService.getFilterProducts("category", params).pipe(takeUntil(this.unsubscribe$)).subscribe((resp: any) => {
   

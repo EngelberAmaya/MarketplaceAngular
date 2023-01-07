@@ -23,7 +23,7 @@ export class ProductsBreadcrumbComponent implements OnInit, OnDestroy {
   }
   
   obtenerInformacion(){
-    let params = this.activateRoute.snapshot.params['param'];
+    let params = this.activateRoute.snapshot.params['param'].split("&")[0];
     console.log(params);
   
     this.categoriesService.getFilterCategories("url", params).pipe(takeUntil(this.unsubscribe$)).subscribe((resp: any) => {

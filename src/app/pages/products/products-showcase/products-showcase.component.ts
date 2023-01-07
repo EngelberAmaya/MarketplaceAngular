@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Subject, takeUntil } from 'rxjs';
 import { ProductsService } from 'src/app/services/products.service';
-import { Rating, DinamicRating, DinamicReviews, DinamicPrice } from '../../../functions';
+import { Rating, DinamicRating, DinamicReviews, DinamicPrice, Pagination } from '../../../functions';
 
 @Component({
   selector: 'app-products-showcase',
@@ -19,6 +19,11 @@ export class ProductsShowcaseComponent implements OnInit {
   rating: Array<any> = [];
 	reviews: Array<any> = [];
 	price: Array<any> = [];
+  params = '';
+  page: any;
+  productFound = 0;
+	currentRoute = '';
+	totalPage = 0;
 
   constructor(private productsService: ProductsService,
               private activateRoute: ActivatedRoute) { }
@@ -35,10 +40,12 @@ export class ProductsShowcaseComponent implements OnInit {
   }
 
   obtenerProductos(){
-    let params = this.activateRoute.snapshot.params["param"];
+    this.params = this.activateRoute.snapshot.params["param"].split("&")[0];
+    this.page = this.activateRoute.snapshot.params["param"].split("&")[1];
+    this.currentRoute = `products/${this.params}`
     this.cargando = true;
 
-    this.productsService.getFilterProducts("category", params).pipe(takeUntil(this.unsubscribe$)).subscribe((resp1: any) => {
+    this.productsService.getFilterProducts("category", this.params).pipe(takeUntil(this.unsubscribe$)).subscribe((resp1: any) => {
 
 			if(Object.keys(resp1).length > 0){
 				
@@ -46,7 +53,7 @@ export class ProductsShowcaseComponent implements OnInit {
 				
 			} else {
 
-				this.productsService.getFilterProducts("sub_category", params).pipe(takeUntil(this.unsubscribe2$)).subscribe((resp2: any) => {
+				this.productsService.getFilterProducts("sub_category", this.params).pipe(takeUntil(this.unsubscribe2$)).subscribe((resp2: any) => {
 		
 					this.productsFnc(resp2);			
 									
@@ -65,18 +72,35 @@ export class ProductsShowcaseComponent implements OnInit {
 
     this.products = [];
     let getProducts:any = [];
+    let total = 0;
 
     for (const key in response) {
-      getProducts.push(response[key]);		
+      getProducts.push(response[key]);
+      total++;		
     }
 
+    this.productFound = total;
+    this.totalPage = Math.ceil(total/6);
+
     getProducts.forEach((product, index) => {
-      if (index < 6) {
-        this.products.push(product);
-        this.rating.push(DinamicRating.fnc(this.products[index]));					
-				this.reviews.push(DinamicReviews.fnc(this.rating[index]));
-				this.price.push(DinamicPrice.fnc(this.products[index]));
-        this.cargando = false;
+
+      if(this.page == undefined){
+				this.page = 1;
+			}
+
+      let first = Number(index) + (this.page * 6) - 6;
+      let last = 6 * this.page;
+
+      if (first < last) {
+
+        if(getProducts[first] != undefined){
+
+          this.products.push(getProducts[first]);
+          this.rating.push(DinamicRating.fnc(getProducts[first]));					
+          this.reviews.push(DinamicReviews.fnc(this.rating[index]));
+          this.price.push(DinamicPrice.fnc(getProducts[first]));
+          this.cargando = false;
+        }
       }
     })
   }
@@ -87,6 +111,7 @@ export class ProductsShowcaseComponent implements OnInit {
       this.render = false;
 
       Rating.fnc();
+      Pagination.fnc();
       
     }  
   }

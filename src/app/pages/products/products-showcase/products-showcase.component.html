@@ -6,7 +6,7 @@
 
     <div class="ps-shopping__header">
 
-        <p><strong> 36</strong> Products found</p>
+        <p><strong> {{ productFound }}</strong> Products found</p>
 
         <div class="ps-shopping__actions">
 
@@ -159,11 +159,7 @@
 
             <div class="ps-pagination">
 
-                <ul class="pagination">
-                    <li class="active"><a href="#">1</a></li>
-                    <li><a href="#">2</a></li>
-                    <li><a href="#">3</a></li>
-                    <li><a href="#">Next Page<i class="icon-chevron-right"></i></a></li>
+                <ul class="pagination" [attr.data-total-pages]="totalPage" [attr.data-actual-page]="page" [attr.data-current-route]="currentRoute">
                 </ul>
 
             </div>
@@ -250,13 +246,7 @@
 
             <div class="ps-pagination">
 
-                <ul class="pagination">
-
-                    <li class="active"><a href="#">1</a></li>
-                    <li><a href="#">2</a></li>
-                    <li><a href="#">3</a></li>
-                    <li><a href="#">Next Page<i class="icon-chevron-right"></i></a></li>
-
+                <ul class="pagination" [attr.data-total-pages]="totalPage" [attr.data-actual-page]="page" [attr.data-current-route]="currentRoute">
                 </ul>
 
             </div>
