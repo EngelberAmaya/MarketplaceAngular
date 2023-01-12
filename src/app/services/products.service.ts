@@ -24,4 +24,8 @@ export class ProductsService {
 	getFilterDataWithLimit(orderBy:string, equalTo:string, limitToFirst:number){
 		return this.http.get(`${environment.url}/products.json?orderBy="${orderBy}"&equalTo="${equalTo}"&limitToFirst=${limitToFirst}&print=pretty`);
 	}
+
+	getSearchProducts(orderBy:string, param:string){
+		return this.http.get(`${environment.url}/products.json?orderBy="${orderBy}"&startAt="${param}"&endAt="${param}\uf8ff"&print=pretty`);
+	}
 }
