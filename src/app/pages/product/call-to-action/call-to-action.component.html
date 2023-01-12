@@ -1,0 +1,41 @@
+<header class="header header--product header--sticky" data-sticky="true">
+
+    <nav class="navigation">
+
+        <div class="container">
+
+            <article *ngFor="let item of call_to_action" class="ps-product--header-sticky">
+
+                <div class="ps-product__thumbnail">
+
+                    <img src="../../../../assets/img/products/{{item.category}}/{{item.image}}" alt="{{item.name}">
+
+                </div>
+
+                <div class="ps-product__wrapper">
+
+                    <div class="ps-product__content">
+
+                        <a class="ps-product__title" routerLink="#">{{item.name}}</a>
+
+                    </div>
+
+                    <div class="ps-product__shopping"><span class="ps-product__price">
+
+                        <span>${{offer}}</span>
+
+                        <del>${{item.price}}</del></span>
+
+                        <a class="ps-btn" href="#"> Add to Cart</a>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+        </div>
+
+    </nav>
+
+</header>

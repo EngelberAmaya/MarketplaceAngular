@@ -23,6 +23,7 @@ import { ProductsShowcaseComponent } from './pages/products/products-showcase/pr
 import { BestSalesItemComponent } from './pages/products/best-sales-item/best-sales-item.component';
 import { SearchBreadcrumbComponent } from './pages/search/search-breadcrumb/search-breadcrumb.component';
 import { SearchShowcaseComponent } from './pages/search/search-showcase/search-showcase.component';
+import { CallToActionComponent } from './pages/product/call-to-action/call-to-action.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import { SearchShowcaseComponent } from './pages/search/search-showcase/search-s
     ProductsShowcaseComponent,
     BestSalesItemComponent,
     SearchBreadcrumbComponent,
-    SearchShowcaseComponent
+    SearchShowcaseComponent,
+    CallToActionComponent
   ],
   imports: [
     BrowserModule,
