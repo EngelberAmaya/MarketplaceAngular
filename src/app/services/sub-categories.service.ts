@@ -12,4 +12,8 @@ export class SubCategoriesService {
 	getFilterData(orderBy: string, equalTo: string){
     return this.http.get(`${environment.url}/sub-categories.json?orderBy="${orderBy}"&equalTo="${equalTo}"&print=pretty`);
 	}
+
+  patchSubCategories(id:string, value:Object){
+		return this.http.patch(`${environment.url}/sub-categories/${id}.json`,value);
+	}
 }

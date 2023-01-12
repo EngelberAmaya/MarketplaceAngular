@@ -14,8 +14,11 @@ export class CategoriesService {
 	}
 
 	getFilterCategories(orderBy:String, equalTo:String){
-
 		return this.http.get(`${environment.url}/categories.json?orderBy="${orderBy}"&equalTo="${equalTo}"&print=pretty`);
-
 	}
+
+	patchCategories(id:string, value:Object){
+		return this.http.patch(`${environment.url}/categories/${id}.json`,value);
+	}
+	
 }

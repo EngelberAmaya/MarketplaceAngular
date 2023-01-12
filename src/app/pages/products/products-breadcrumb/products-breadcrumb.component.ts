@@ -31,14 +31,32 @@ export class ProductsBreadcrumbComponent implements OnInit, OnDestroy {
       if(Object.keys(resp).length > 0){
   
         for (const key in resp) {
-          this.breadcrumb = resp[key].name;          
+          this.breadcrumb = resp[key].name;
+          
+          let id = Object.keys(resp).toString();
+          let value = {
+            "view": Number(resp[key].view + 1)
+          }
+
+          this.categoriesService.patchCategories(id, value).subscribe((resp) => {
+            //console.log(resp);
+          })
         }
   
       } else {
   
         this.subCategoriesService.getFilterData("url", params).pipe(takeUntil(this.unsubscribe2$)).subscribe((resp2: any) => {
           for (const key in resp2) {
-            this.breadcrumb = resp2[key].name;          
+            this.breadcrumb = resp2[key].name;
+            
+            let id = Object.keys(resp2).toString();
+            let value = {
+              "view": Number(resp2[key].view + 1)
+            }
+  
+            this.subCategoriesService.patchSubCategories(id, value).subscribe((resp) => {
+              console.log(resp);
+            })
           }
         }, err => {
           console.log(err);
