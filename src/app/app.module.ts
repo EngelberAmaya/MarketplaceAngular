@@ -21,6 +21,7 @@ import { HomeShowcaseComponent } from './pages/home/home-showcase/home-showcase.
 import { ProductsBreadcrumbComponent } from './pages/products/products-breadcrumb/products-breadcrumb.component';
 import { ProductsShowcaseComponent } from './pages/products/products-showcase/products-showcase.component';
 import { BestSalesItemComponent } from './pages/products/best-sales-item/best-sales-item.component';
+import { SearchBreadcrumbComponent } from './pages/search/search-breadcrumb/search-breadcrumb.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { BestSalesItemComponent } from './pages/products/best-sales-item/best-sa
     HomeShowcaseComponent,
     ProductsBreadcrumbComponent,
     ProductsShowcaseComponent,
-    BestSalesItemComponent
+    BestSalesItemComponent,
+    SearchBreadcrumbComponent
   ],
   imports: [
     BrowserModule,

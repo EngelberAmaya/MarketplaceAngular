@@ -1,7 +1,9 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Router } from '@angular/router';
 import { Subject, takeUntil } from 'rxjs';
 import { CategoriesService } from 'src/app/services/categories.service';
 import { SubCategoriesService } from 'src/app/services/sub-categories.service';
+import { Search } from '../../functions';
 
 @Component({
   selector: 'app-header',
@@ -18,7 +20,8 @@ export class HeaderComponent implements OnInit, OnDestroy {
   arrayTitleName: any[] = [];
   listFiltro: any[] = [];
 
-  constructor(private categoriesService: CategoriesService, private subCategoriesService: SubCategoriesService) { }
+  constructor(private categoriesService: CategoriesService, private subCategoriesService: SubCategoriesService,
+              private router: Router) { }
 
   ngOnInit(): void {
     this.obtenerCategorias();
@@ -86,6 +89,15 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   obtenerFiltroSubcategoria(subcategoria: string){
     return this.listFiltro.filter((data: any) => data.titleList == subcategoria);
+  }
+
+  buscar(value: string){
+
+    if (value.length == 0  || Search.fnc(value) == undefined) {
+      return;
+    }
+
+    this.router.navigate(['search', Search.fnc(value)]);
   }
 
 }

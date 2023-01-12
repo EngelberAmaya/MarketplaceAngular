@@ -1,7 +1,9 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Subject, takeUntil } from 'rxjs';
 import { CategoriesService } from 'src/app/services/categories.service';
 import { SubCategoriesService } from 'src/app/services/sub-categories.service';
+import { Search } from '../../functions';
 
 @Component({
   selector: 'app-header-mobile',
@@ -17,7 +19,8 @@ export class HeaderMobileComponent implements OnInit, OnDestroy {
   categoriesList:Array<any> = [];
   listFiltro: any[] = [];
 
-  constructor(private categoriesService: CategoriesService, private subCategoriesService: SubCategoriesService) { }
+  constructor(private categoriesService: CategoriesService, private subCategoriesService: SubCategoriesService,
+              private router: Router) { }
 
   ngOnInit(): void {
     this.obtenerCategorias();
@@ -79,6 +82,15 @@ export class HeaderMobileComponent implements OnInit, OnDestroy {
 
   obtenerFiltroSubcategoria(category: string){
     return this.listFiltro.filter((data: any) => data.category == category);
+  }
+
+  buscar(value: string){
+
+    if (value.length == 0  || Search.fnc(value) == undefined) {
+      return;
+    }
+
+    this.router.navigate(['search', Search.fnc(value)]);
   }
 
 }

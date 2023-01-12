@@ -63,7 +63,7 @@
                 Logo
                 ======================================-->
 
-                <a class="ps-logo" href="index.html">
+                <a class="ps-logo" routerLink="/">
                     <img src="../../../assets/img/template/logo_light.png" alt="">
                 </a>
 
@@ -117,8 +117,8 @@
             ======================================-->
 
             <div class="header__content-center">
-                <form class="ps-form--quick-search" action="index.html" method="get">
-                    <div class="form-group--icon">
+                <form class="ps-form--quick-search">
+                    <!-- <div class="form-group--icon">
                         <i class="icon-chevron-down"></i>
                         <select class="form-control">
                             <option value="1">All</option>
@@ -126,9 +126,9 @@
                             <option value="1">Sounds</option>
                             <option value="1">Technology toys</option>
                         </select>
-                    </div>
-                    <input class="form-control" type="text" placeholder="I'm shopping for...">
-                    <button>Search</button>
+                    </div> -->
+                    <input (keyup.enter)="buscar(search.value)" #search class="form-control" type="text" placeholder="I'm shopping for...">
+                    <button type="button" (click)="buscar(search.value)">Search</button>
                 </form>
             </div>
 
