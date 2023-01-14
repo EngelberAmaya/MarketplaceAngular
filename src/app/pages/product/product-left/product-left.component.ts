@@ -2,7 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Subject, takeUntil } from 'rxjs';
 import { ProductsService } from 'src/app/services/products.service';
-import { Rating, DinamicRating, DinamicReviews, DinamicPrice, CountDown, ProgressBar, Tabs } from '../../../functions';;
+import { Rating, DinamicRating, DinamicReviews, DinamicPrice, CountDown, ProgressBar, Tabs, Quantity } from '../../../functions';;
 
 @Component({
   selector: 'app-product-left',
@@ -99,6 +99,7 @@ export class ProductLeftComponent implements OnInit, OnDestroy {
 			CountDown.fnc();
 			ProgressBar.fnc();
 			Tabs.fnc();
+      Quantity.fnc();
 		}
 	}
 
