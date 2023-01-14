@@ -27,6 +27,7 @@ import { CallToActionComponent } from './pages/product/call-to-action/call-to-ac
 import { ProductBreadcrumbComponent } from './pages/product/product-breadcrumb/product-breadcrumb.component';
 import { ProductLeftComponent } from './pages/product/product-left/product-left.component';
 import { ProductRightComponent } from './pages/product/product-right/product-right.component';
+import { UrlsecurePipe } from './pipes/urlsecure.pipe';
 
 
 @NgModule({
@@ -55,7 +56,8 @@ import { ProductRightComponent } from './pages/product/product-right/product-rig
     CallToActionComponent,
     ProductBreadcrumbComponent,
     ProductLeftComponent,
-    ProductRightComponent
+    ProductRightComponent,
+    UrlsecurePipe
   ],
   imports: [
     BrowserModule,

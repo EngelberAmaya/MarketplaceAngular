@@ -19,6 +19,7 @@ export class ProductLeftComponent implements OnInit, OnDestroy {
   cargando = false;
   render = true;
   countd: Array<any> = [];
+  video = '';
 
   constructor(private activateRoute: ActivatedRoute,
               private productsService: ProductsService) { }
@@ -67,8 +68,20 @@ export class ProductLeftComponent implements OnInit, OnDestroy {
         		parseInt(date.split("-")[2])
       	  )
         )
-        console.log(this.countd);
+        
     	}
+
+      if(JSON.parse(this.product[index].video)[0] == "youtube"){
+
+        this.video = `https://www.youtube.com/embed/${JSON.parse(this.product[index].video)[1]}?rel=0&autoplay=0 `
+
+      }
+
+      if(JSON.parse(this.product[index].video)[0] == "vimeo"){
+
+        this.video = `https://player.vimeo.com/video/${JSON.parse(this.product[index].video)[1]}`
+        
+      }
 
       this.cargando = false;
       

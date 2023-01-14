@@ -107,6 +107,8 @@
 
                 <div class="ps-list--dot" [innerHTML]="item.summary"></div>
 
+                <iframe class="mb-3" [attr.src]="video | urlsecure" height="360" frameborder="0" allowfullscreen></iframe>
+
             </div>
 
             <div class="ps-product__variations">
