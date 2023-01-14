@@ -20,6 +20,7 @@ export class ProductLeftComponent implements OnInit, OnDestroy {
   render = true;
   countd: Array<any> = [];
   video = '';
+  tags = '';
 
   constructor(private activateRoute: ActivatedRoute,
               private productsService: ProductsService) { }
@@ -82,6 +83,8 @@ export class ProductLeftComponent implements OnInit, OnDestroy {
         this.video = `https://player.vimeo.com/video/${JSON.parse(this.product[index].video)[1]}`
         
       }
+
+      this.tags = this.product[index].tags.split(",");
 
       this.cargando = false;
       
