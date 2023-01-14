@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Subject, takeUntil } from 'rxjs';
 import { ProductsService } from 'src/app/services/products.service';
-import { Rating, DinamicRating, DinamicReviews, DinamicPrice, Pagination } from '../../../functions';
+import { Rating, DinamicRating, DinamicReviews, DinamicPrice, Pagination, Tabs } from '../../../functions';
 
 @Component({
   selector: 'app-search-showcase',
@@ -111,7 +111,7 @@ export class SearchShowcaseComponent implements OnInit {
 
       Rating.fnc();
       Pagination.fnc();
-      
+      Tabs.fnc();
     }  
   }
 

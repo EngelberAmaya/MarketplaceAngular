@@ -2,7 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Subject, takeUntil } from 'rxjs';
 import { ProductsService } from 'src/app/services/products.service';
-import { Rating, DinamicRating, DinamicReviews, DinamicPrice } from '../../../functions';;
+import { Rating, DinamicRating, DinamicReviews, DinamicPrice, CountDown, ProgressBar, Tabs } from '../../../functions';;
 
 @Component({
   selector: 'app-product-left',
@@ -17,6 +17,8 @@ export class ProductLeftComponent implements OnInit, OnDestroy {
 	reviews: Array<any> = [];
 	price: Array<any> = [];
   cargando = false;
+  render = true;
+  countd: Array<any> = [];
 
   constructor(private activateRoute: ActivatedRoute,
               private productsService: ProductsService) { }
@@ -54,10 +56,37 @@ export class ProductLeftComponent implements OnInit, OnDestroy {
       this.rating.push(DinamicRating.fnc(this.product[index]));
       this.reviews.push(DinamicReviews.fnc(this.rating[index]));
       this.price.push(DinamicPrice.fnc(this.product[index]));
+
+      if(this.product[index].offer != ""){
+    		const date = JSON.parse(this.product[index].offer)[2]; 
+         
+        this.countd.push(
+        	new Date(
+        		parseInt(date.split("-")[0]),
+        		parseInt(date.split("-")[1])-1,
+        		parseInt(date.split("-")[2])
+      	  )
+        )
+        console.log(this.countd);
+    	}
+
       this.cargando = false;
       
     })
       
   }
+
+  callback(){
+
+		if(this.render){
+
+			this.render = false;
+
+			Rating.fnc();
+			CountDown.fnc();
+			ProgressBar.fnc();
+			Tabs.fnc();
+		}
+	}
 
 }

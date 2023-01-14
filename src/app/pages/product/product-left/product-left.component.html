@@ -120,7 +120,7 @@
 
                     <figcaption> Don't Miss Out! This promotion will expires in</figcaption>
 
-                    <ul class="ps-countdown" data-time="July 21, 2020 15:37:25">
+                    <ul class="ps-countdown" [attr.data-time]="countd[i]">
 
                         <li><span class="days"></span>
                             <p>Days</p>
@@ -146,11 +146,11 @@
 
                     <figcaption>Sold Items</figcaption>
 
-                    <div class="ps-product__progress-bar ps-progress" data-value="28">
+                    <div class="ps-product__progress-bar ps-progress" [attr.data-value]="item.stock">
 
                         <div class="ps-progress__value"><span></span></div>
 
-                        <p><b>20/85</b> Sold</p>
+                        <p><b>{{100 - item.stock}}/100</b> Sold</p>
 
                     </div>
 
@@ -247,7 +247,7 @@
         Product Content
         ======================================-->
 
-    <div *ngFor="let item of product;let i = index" class="ps-product__content ps-tab-root">
+    <div *ngFor="let item of product;let i = index; let lastIndex = last" class="ps-product__content ps-tab-root">
 
         <div class="ps-block--bought-toggether">
 
@@ -568,6 +568,8 @@
             </div>
 
         </div>
+
+        {{ lastIndex ? callback() : ""}}
 
     </div>
     <!--  End product content -->
