@@ -38,7 +38,7 @@ export class ProductLeftComponent implements OnInit, OnDestroy {
     this.cargando = true;
     this.productsService.getFilterProducts("url", this.activateRoute.snapshot.params["param"])
       .pipe(takeUntil(this.unsubscribe$)).subscribe((resp: any) => {
-        console.log(resp);
+        //console.log(resp);
         this.productsFnc(resp);	
       })
   }
