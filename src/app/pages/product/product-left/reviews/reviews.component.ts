@@ -29,10 +29,70 @@ export class ReviewsComponent implements OnInit {
     for(let i = 0; i < 5; i++){
       $(".reviewsOption").append(`<option value="${reviews[0][i]}">${i+1}</option>`)
     }
+    
+    Rating.fnc();
 
     this.totalReviews = JSON.parse(this.childItem["reviews"]).length;
 
-    Rating.fnc();
+    let arrayReview:any = []; 
+
+    JSON.parse(this.childItem["reviews"]).forEach((rev:any) =>{
+
+       	arrayReview.push(rev.review)
+        	
+    })
+
+    arrayReview.sort();
+
+	    let objectStar = {
+
+	    	"1":0,
+	    	"2":0,
+	    	"3":0,
+	    	"4":0,
+	    	"5":0
+	    }
+
+    arrayReview.forEach((value: any, index: number, arr) => {
+
+      let first_index = arr.indexOf(value);
+      let last_index = arr.lastIndexOf(value);
+
+      if(first_index != last_index){
+        objectStar[value] += 1
+        console.log(objectStar);
+
+      } else {
+        objectStar[value] += 1        
+      }
+
+    })
+
+    for(let i = 5; i > 0; i--){
+
+      //Hacemos una regla de 3: la cantidad que suma cada estella multiplicado por 100 dividido la cantidad de calificaciones
+      let starPercentage = Math.round((objectStar[i] * 100)/ arrayReview.length)
+      
+      $(".ps-block--average-rating").append(`
+      
+          <div class="ps-block__star">
+    
+                  <span>${i} Star</span>
+    
+                    <div class="ps-progress" data-value="${starPercentage}">
+    
+                      <span></span>
+    
+                    </div>
+    
+                    <span>${starPercentage}%</span>
+
+          </div>
+
+      `)
+
+    }
+   
   }
 
   callback(){
