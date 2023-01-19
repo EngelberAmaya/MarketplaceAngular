@@ -2,7 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Subject, takeUntil } from 'rxjs';
 import { ProductsService } from 'src/app/services/products.service';
-import { Rating, DinamicRating, DinamicReviews, DinamicPrice, CountDown, ProgressBar, Tabs, Quantity } from '../../../functions';;
+import { Rating, DinamicRating, DinamicReviews, DinamicPrice, CountDown, ProgressBar, Tabs, Quantity } from '../../../functions';
 
 @Component({
   selector: 'app-product-left',
@@ -21,6 +21,7 @@ export class ProductLeftComponent implements OnInit, OnDestroy {
   countd: Array<any> = [];
   video = '';
   tags = '';
+  totalReviews = 0;
 
   constructor(private activateRoute: ActivatedRoute,
               private productsService: ProductsService) { }
@@ -85,6 +86,8 @@ export class ProductLeftComponent implements OnInit, OnDestroy {
       }
 
       this.tags = this.product[index].tags.split(",");
+
+      this.totalReviews = JSON.parse(this.product[index].reviews).length;
 
       this.cargando = false;
       
