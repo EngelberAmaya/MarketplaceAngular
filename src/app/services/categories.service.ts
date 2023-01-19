@@ -13,7 +13,7 @@ export class CategoriesService {
 		return this.http.get(`${environment.url}/categories.json`);
 	}
 
-	getFilterCategories(orderBy:String, equalTo:String){
+	getFilterCategories(orderBy:string, equalTo:string){
 		return this.http.get(`${environment.url}/categories.json?orderBy="${orderBy}"&equalTo="${equalTo}"&print=pretty`);
 	}
 
