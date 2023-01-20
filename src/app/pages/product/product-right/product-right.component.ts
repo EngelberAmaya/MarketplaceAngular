@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Subject, takeUntil } from 'rxjs';
 import { ProductsService } from 'src/app/services/products.service';
@@ -9,7 +9,7 @@ import { Rating, DinamicRating, DinamicReviews, DinamicPrice} from '../../../fun
   templateUrl: './product-right.component.html',
   styleUrls: ['./product-right.component.css']
 })
-export class ProductRightComponent implements OnInit {
+export class ProductRightComponent implements OnInit, OnDestroy {
 
   unsubscribe$ = new Subject();
   unsubscribe2$ = new Subject();

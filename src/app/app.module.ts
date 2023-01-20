@@ -31,6 +31,7 @@ import { UrlsecurePipe } from './pipes/urlsecure.pipe';
 import { BoughtTogetherComponent } from './pages/product/product-left/bought-together/bought-together.component';
 import { VendorStoreComponent } from './pages/product/product-left/vendor-store/vendor-store.component';
 import { ReviewsComponent } from './pages/product/product-left/reviews/reviews.component';
+import { SimilarBoughtComponent } from './pages/product/similar-bought/similar-bought.component';
 
 
 @NgModule({
@@ -63,7 +64,8 @@ import { ReviewsComponent } from './pages/product/product-left/reviews/reviews.c
     UrlsecurePipe,
     BoughtTogetherComponent,
     VendorStoreComponent,
-    ReviewsComponent
+    ReviewsComponent,
+    SimilarBoughtComponent
   ],
   imports: [
     BrowserModule,
