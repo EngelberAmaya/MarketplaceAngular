@@ -28,4 +28,9 @@ export class ProductsService {
 	getSearchProducts(orderBy:string, param:string){
 		return this.http.get(`${environment.url}/products.json?orderBy="${orderBy}"&startAt="${param}"&endAt="${param}\uf8ff"&print=pretty`);
 	}
+
+	patchProducts(id:string, value:Object){
+		return this.http.patch(`${environment.url}/products/${id}.json`,value);
+		
+	}
 }
