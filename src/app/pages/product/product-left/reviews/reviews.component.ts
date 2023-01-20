@@ -12,6 +12,7 @@ export class ReviewsComponent implements OnInit {
   @Input() childItem: any;
   rating: Array<any> = [];
   reviews: Array<any> = [];
+  itemReviews: Array<any> = [];
   render = true;
   totalReviews = 0;
 
@@ -44,14 +45,13 @@ export class ReviewsComponent implements OnInit {
 
     arrayReview.sort();
 
-	    let objectStar = {
-
+	  let objectStar = {
 	    	"1":0,
 	    	"2":0,
 	    	"3":0,
 	    	"4":0,
 	    	"5":0
-	    }
+	  }
 
     arrayReview.forEach((value: any, index: number, arr) => {
 
@@ -60,7 +60,7 @@ export class ReviewsComponent implements OnInit {
 
       if(first_index != last_index){
         objectStar[value] += 1
-        console.log(objectStar);
+        //console.log(objectStar);
 
       } else {
         objectStar[value] += 1        
@@ -92,13 +92,32 @@ export class ReviewsComponent implements OnInit {
       `)
 
     }
-   
+
+    this.itemReviews.push(JSON.parse(this.childItem["reviews"]));
+    
   }
 
   callback(){
     if(this.render){
 
 			this.render = false;
+      let reviews = $("[reviews]");
+
+      for (let key = 0; key < reviews.length; key++) {
+        
+        for(let i = 0; i < 5; i++){
+  
+          $(reviews[key]).append(`
+            <option value="2">${i+1}</option>
+          `)
+  
+          if($(reviews[key]).attr("reviews") == (i+1)){
+            $(reviews[key]).children("option").val(1)
+          }
+        }
+      }
+      
+      Rating.fnc();
     }
   }
 
