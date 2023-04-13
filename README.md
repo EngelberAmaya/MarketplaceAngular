@@ -1,4 +1,10 @@
-# Marketplace
+# Marketplace - Angular
+
+Aplicación que gestiona un Marketplace, trabajando con diversas categorías, subcategorías, productos, compras.  
+De los productos se tienen diversas funcionalidades como, por ejemplo:  
+
+Productos más vendidos, productos recomendados, productos relacionados. De igual manera cuenta con la funcionalidad de reseñas, estrellas donde el usuario podrá tomar decisiones en base a dichos datos, etc. 
+
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.0.3.
 
